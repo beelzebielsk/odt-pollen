@@ -9,7 +9,7 @@ TARGET := OdtExample.class
 #   the containing directory followed by "/*" as a wildcard which will
 #   use all the .jar files in the directory.
 # Source: # <https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html>
-ODFLIBS := $(abspath ./java-lib)/*
+ODFLIBS := .:$(abspath ./java-lib)/*
 
 all : $(TARGET)
 
@@ -27,9 +27,9 @@ test :
 # it lives without having the location of the .class file in the
 # classpath.
 %.run : %.class
-	cd $(dir $@); java -classpath ".:$(ODFLIBS)" $(basename $(notdir $@))
+	cd $(dir $@); java -classpath "$(ODFLIBS)" $(basename $(notdir $@))
 %.jar : %.class
-	jar cf $< $@ -classpath ".:$(ODFLIBS)" $<
+	jar cf $< $@ -classpath "$(ODFLIBS)" $<
 
 # Not sure if this was necessary, but now I can write just the java
 # filename instead of writing .run, which isn't a real file. I may not
