@@ -132,6 +132,8 @@ class Translate {
         NodeList children = root.getChildNodes();
         System.out.println(children.getLength());
         visitChildren(root);
-
+        Translate t = new Translate();
+        t.makeDocument(doc);
+        t.doc.save("Translate.odt");
     }
 }

@@ -10,16 +10,17 @@ TARGET := OdtExample.class
 #   use all the .jar files in the directory.
 # Source: # <https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html>
 ODFLIBS := .:$(abspath ./java-lib)/*
+JAVAOPTS := -classpath "$(ODFLIBS)"
 
 all : $(TARGET)
 
 .PHONY : test
 test :
 	make Translate.class
-	java Translate sample.xml
+	java $(JAVAOPTS) Translate sample.xml
 
 %.class : %.java
-	javac -classpath "$(ODFLIBS)" $<
+	javac $(JAVAOPTS) $<
 
 # NOTE: In order to .class file, the file has to be in the classpath.
 # The argument at the end of the java command is an entry-point class
@@ -27,7 +28,7 @@ test :
 # it lives without having the location of the .class file in the
 # classpath.
 %.run : %.class
-	cd $(dir $@); java -classpath "$(ODFLIBS)" $(basename $(notdir $@))
+	cd $(dir $@); java $(JAVAOPTS) $(basename $(notdir $@))
 %.jar : %.class
 	jar cf $< $@ -classpath "$(ODFLIBS)" $<
 
