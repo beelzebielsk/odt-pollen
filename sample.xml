@@ -1,3 +1,39 @@
+<?xml version="1.0"?>
 <root>
-    <p> Some text <span> in span </span> </p>
+  <p> Some text <span> in span </span> </p>
+  <p> Other text, this time in a new paragraph. </p>
+  <p><span> All of this is in a span. </span> but this is not. </p>
+  <p><bold> All of this should be bold. </bold> but this should not. </p>
+  <p><italic> All of this should be italic. </italic> but this should not. </p>
+  <ul>
+    <li>
+      <p>hi</p>
+    </li>
+    <li>
+      <p>how are you</p>
+    </li>
+    <li>
+      <p>today?</p>
+    </li>
+  </ul>
+  <ul>
+      <li><p>new list</p></li>
+      <li><p>new list</p><p>with two paragraphs</p></li>
+      <li><p>Well, sigh. Perhaps at least <italic>one</italic> victory, yes?</p></li>
+      <li><p>Positively <bold>wonderful</bold>. I have the beginnings of styles complete for all items that can accept a paragraph element.</p></li>
+  </ul>
+  <ol>
+      <li><p>a thing</p></li>
+      <li><p>another thing</p></li>
+  </ol>
+  <ul>
+      <li><p>I'm guilty of writing this</p>
+          <ol>
+              <li><p>Just</p></li> 
+              <li><p>to</p></li> 
+              <li><p>start</p></li> 
+              <li><p>a new list.</p></li>
+          </ol>
+      </li>
+  </ul>
 </root>
